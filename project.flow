@@ -1,0 +1,26 @@
+{
+  project : {
+    name : 'joy_of_flight',
+    version : '0.0.1',
+    author : 'Jonathan Hirz',
+
+    app : {
+      name : 'joy_of_flight',
+      package : 'com.jonathanhirz.joy_of_flight'
+    },
+
+    build : {
+      dependencies : {
+        luxe : '*',
+      },
+      hxcpp : {
+        flags : ['-nocolor']
+      }
+    },
+
+    files : {
+      config : 'config.json',
+      assets : 'assets/'
+    }
+  }
+}
