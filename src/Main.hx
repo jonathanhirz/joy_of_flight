@@ -22,7 +22,7 @@ class Main extends luxe.Game {
         config.window.title = config.user.window.title;
 
         //assets
-        
+        config.preload.textures.push({ id:'assets/background.png' });
 
         return config;
 
