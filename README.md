@@ -1,5 +1,5 @@
-##joy_of_flight
-###made with luxe engine
+## joy_of_flight
+#### made with luxe engine
 
 2d side scrolling flight game.
 'simple' controls (joystick/touch point to fly up/down/left/right)
