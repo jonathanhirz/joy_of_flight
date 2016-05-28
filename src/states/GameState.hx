@@ -1,16 +1,17 @@
 package states;
+
 import luxe.States;
 import luxe.Input;
 import luxe.Sprite;
 import luxe.Color;
 import luxe.Vector;
+import entity.Plane;
 import luxe.utils.Maths;
 
 class GameState extends State {
 
     var ground : Sprite;
     var plane : Sprite;
-    var speed : Int = 300;
 
     public function new( _name:String ) {
         super({ name:_name });
@@ -25,15 +26,7 @@ class GameState extends State {
             depth : -1
         });
 
-        plane = new Sprite({
-            name : 'plane',
-            size : new Vector(32,32),
-            pos : new Vector(0,-64),
-            depth : 0,
-            color : new Color().rgb(0xa43db6)
-        });
-        //todo: add plane component for controls
-
+        plane = new Plane();
 
     } //init
 
@@ -51,21 +44,8 @@ class GameState extends State {
 
         Luxe.camera.center.weighted_average_xy(plane.pos.x, plane.pos.y, 5);
         Luxe.camera.center.set_xy(Luxe.camera.center.x, Maths.clamp(Luxe.camera.center.y, -260, 280));
-        //todo: clamp player to top and bottom of screen
-        //todo: loop background side to side. need two copies to swap around?
 
-        if(Luxe.input.inputdown('up')) {
-            plane.pos.y -= speed * dt;
-        }
-        if(Luxe.input.inputdown('down')) {
-            plane.pos.y += speed * dt;
-        }
-        if(Luxe.input.inputdown('left')) {
-            plane.pos.x -= speed * dt;
-        }
-        if(Luxe.input.inputdown('right')) {
-            plane.pos.x += speed * dt;
-        }
+        //todo: loop background side to side. need two copies to swap around?
 
     } //update
 
